@@ -63,6 +63,12 @@
 	}
 }
 
+@media (prefers-reduced-motion: reduce) {
+	.card {
+		animation: none;
+	}
+}
+
 @keyframes post-enter {
 	from {
 		transform: translateX(24px);

@@ -1,0 +1,40 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--color-border);
+	background: var(--color-surface);
+	transition: 240ms var(--motion-ease);
+	transition-property: background, border-color;
+}
+
+.card:hover {
+	border-color: var(--color-border-strong);
+	background: var(--color-surface-hover);
+	box-shadow: inset 2px 0 var(--color-accent);
+}
+
+.card:has(button[data-variant='filled']) {
+	border-color: var(--color-accent);
+}
+
+.area,
+.badge {
+	color: var(--color-text-faint);
+	font-family: var(--font-mono);
+	letter-spacing: 0.07em;
+}
+
+.badge {
+	color: var(--color-accent);
+}
+
+.title {
+	color: var(--color-text);
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.description {
+	color: var(--color-text-muted);
+	line-height: 1.55;
+}

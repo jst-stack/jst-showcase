@@ -1,0 +1,278 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+	--font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+	--font-mono: var(--font-jetbrains), ui-monospace, 'SFMono-Regular', monospace;
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-blueprint: var(--blueprint);
+	--color-grid: var(--grid);
+	--radius-sm: calc(var(--radius) - 2px);
+	--radius-md: var(--radius);
+	--radius-lg: calc(var(--radius) + 2px);
+	--radius-xl: calc(var(--radius) + 6px);
+}
+
+:root {
+	color-scheme: dark;
+
+	--radius: 0.5rem;
+
+	/* Deep ink canvas — react.doctor dark */
+	--background: oklch(16.5% 0.012 265deg);
+	--foreground: oklch(95% 0.005 260deg);
+	--card: oklch(20.5% 0.014 265deg);
+	--card-foreground: oklch(95% 0.005 260deg);
+	--popover: oklch(20.5% 0.014 265deg);
+	--popover-foreground: oklch(95% 0.005 260deg);
+
+	/* Bright blue accent */
+	--primary: oklch(64% 0.19 262deg);
+	--primary-foreground: oklch(16% 0.01 265deg);
+	--secondary: oklch(24% 0.014 265deg);
+	--secondary-foreground: oklch(92% 0.005 260deg);
+	--muted: oklch(23.5% 0.013 265deg);
+	--muted-foreground: oklch(76% 0.012 260deg);
+	--accent: oklch(30% 0.05 262deg);
+	--accent-foreground: oklch(90% 0.03 262deg);
+	--destructive: oklch(66% 0.18 22deg);
+	--destructive-foreground: oklch(98% 0 0deg);
+	--border: oklch(29% 0.014 265deg);
+	--input: oklch(29% 0.014 265deg);
+	--ring: oklch(64% 0.19 262deg);
+	--blueprint: oklch(64% 0.19 262deg);
+	--grid: oklch(64% 0.19 262deg / 8%);
+
+	/* Compatibility tokens for the live feature examples. */
+	--color-bg: var(--background);
+	--color-bg-subtle: var(--muted);
+	--color-surface: var(--card);
+	--color-surface-hover: var(--secondary);
+	--color-border: var(--border);
+	--color-border-strong: oklch(42% 0.02 265deg);
+	--color-text: var(--foreground);
+	--color-text-muted: var(--muted-foreground);
+	--color-text-faint: oklch(62% 0.012 260deg);
+	--color-accent: var(--primary);
+	--color-accent-muted: oklch(64% 0.19 262deg / 14%);
+	--color-accent-contrast: var(--primary-foreground);
+	--color-success: oklch(72% 0.13 155deg);
+	--motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+
+		margin: 0;
+		min-width: 320px;
+		min-height: 100vh;
+	}
+
+	section[id] {
+		scroll-margin-top: 5rem;
+	}
+}
+
+.site-main {
+	min-width: 0;
+}
+
+:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 3px;
+}
+
+@layer utilities {
+	.bg-grid {
+		background-image:
+			linear-gradient(to right, var(--grid) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
+
+	.bg-hatch {
+		background-image: repeating-linear-gradient(
+			-45deg,
+			var(--border) 0,
+			var(--border) 1px,
+			transparent 1px,
+			transparent 7px
+		);
+	}
+
+	/* Scroll reveal */
+	.reveal {
+		opacity: 0;
+		transform: translateY(18px);
+		transition:
+			opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+		will-change: opacity, transform;
+	}
+
+	.reveal-in {
+		opacity: 1;
+		transform: none;
+	}
+
+	/* Blinking terminal cursor */
+	.animate-blink {
+		animation: blink 1.05s steps(1) infinite;
+	}
+
+	/* Typed-line entrance for terminal rows */
+	.term-line {
+		opacity: 0;
+		animation: term-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+	}
+
+	/* Drifting blueprint grid */
+	.bg-grid-drift {
+		background-image:
+			linear-gradient(to right, var(--grid) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+		background-size: 40px 40px;
+		animation: grid-drift 22s linear infinite;
+	}
+
+	/* Card hover lift */
+	.lift {
+		transition:
+			transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+			border-color 0.25s ease,
+			box-shadow 0.25s ease;
+	}
+
+	.lift:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 12px 30px -12px oklch(0% 0 0deg / 45%);
+	}
+
+	/* Pulsing diagram node */
+	.animate-node {
+		animation: node-pulse 2.4s ease-in-out infinite;
+	}
+
+	/* Slow data pulse traveling a connector */
+	.animate-flow {
+		animation: flow 2.6s ease-in-out infinite;
+	}
+}
+
+@keyframes blink {
+	0%,
+	50% {
+		opacity: 1;
+	}
+
+	50.01%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes term-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes grid-drift {
+	from {
+		background-position:
+			0 0,
+			0 0;
+	}
+
+	to {
+		background-position:
+			40px 40px,
+			40px 40px;
+	}
+}
+
+@keyframes node-pulse {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 oklch(64% 0.19 262deg / 50%);
+	}
+
+	50% {
+		box-shadow: 0 0 0 5px oklch(64% 0.19 262deg / 0%);
+	}
+}
+
+@keyframes flow {
+	0% {
+		top: 0;
+		opacity: 0;
+	}
+
+	15% {
+		opacity: 1;
+	}
+
+	85% {
+		opacity: 1;
+	}
+
+	100% {
+		top: 100%;
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.animate-blink,
+	.term-line,
+	.bg-grid-drift,
+	.animate-node,
+	.animate-flow {
+		animation: none;
+	}
+
+	.term-line {
+		opacity: 1;
+	}
+
+	.lift:hover {
+		transform: none;
+	}
+}

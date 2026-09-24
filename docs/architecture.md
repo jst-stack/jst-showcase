@@ -15,7 +15,7 @@ app → pages → widgets → features → entities → shared
 - `entities` own domain types, models, mappers, repositories, services, stores, and entity UI.
 - `shared` owns product-agnostic infrastructure. Move code here only after a second real consumer.
 
-Dependencies normally point downward. A direct same-layer import is acceptable while ownership is clear, no cycle exists, and the code has one consumer. Extract a contract when reuse, independent evolution, or test substitution becomes real.
+Dependencies point downward. Production slices cannot import sibling slices directly; compose them from a higher layer or inject a narrow consumer-owned port. Tests may reach composition roots.
 
 ## A complete vertical slice
 

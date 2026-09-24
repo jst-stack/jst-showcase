@@ -1,6 +1,6 @@
 import type { TemplateItem } from './model/templateItem.types'
 import { inject } from '@needle-di/core'
-import { atom, computed, sleep, withAsyncData, wrap } from '@reatom/core'
+import { action, atom, computed, sleep, withAsyncData, wrap } from '@reatom/core'
 import { TemplateModuleService } from './services/templateModuleService/templateModule.service'
 
 export class TemplateModuleStore {
@@ -9,8 +9,11 @@ export class TemplateModuleStore {
 	) {}
 
 	search = atom('')
+	private revision = atom(0)
+	private bumpRevision = action(() => this.revision.set(this.revision() + 1))
 
 	items = computed(async () => {
+		this.revision()
 		const query = this.search()
 
 		if (query) {
@@ -25,10 +28,12 @@ export class TemplateModuleStore {
 	)
 
 	clearSelected = async () => {
-		await this.templateModuleService.clearSelected(this.items.data())
+		await wrap(this.templateModuleService.clearSelected(this.items.data()))
+		this.bumpRevision()
 	}
 
 	toggleSelected = async (id: TemplateItem['id']) => {
-		await this.templateModuleService.toggleSelected(this.items.data(), id)
+		await wrap(this.templateModuleService.toggleSelected(this.items.data(), id))
+		this.bumpRevision()
 	}
 }

@@ -1,6 +1,5 @@
 import type { TemplateItem } from '../../model/templateItem.types'
 import { inject } from '@needle-di/core'
-import { wrap } from '@reatom/core'
 import { mapTemplateItems } from '../../model/templateItems.mapper'
 import { TemplateItemsModel } from '../../model/templateItems.model'
 import {
@@ -30,13 +29,13 @@ export class TemplateModuleService {
 	}
 
 	public async toggleSelected(items: TemplateItem[], id: number) {
-		await wrap(this.selectedItemsRepo.toggleSelected(id))
+		await this.selectedItemsRepo.toggleSelected(id)
 
 		TemplateItemsModel.toggleItemById(items, id)
 	}
 
 	public async clearSelected(items: TemplateItem[]) {
-		await wrap(this.selectedItemsRepo.clearSelected())
+		await this.selectedItemsRepo.clearSelected()
 
 		TemplateItemsModel.clearSelected(items)
 	}

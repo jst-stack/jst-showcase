@@ -5,12 +5,12 @@ export class TemplateItemsModel {
 
 	static clearSelected(items: TemplateItem[]) {
 		for (const item of items) {
-			item.isSelected.set(false)
+			item.isSelected = false
 		}
 	}
 
 	static getSelectedItems(items: TemplateItem[]) {
-		return items.filter(item => item.isSelected())
+		return items.filter(item => item.isSelected)
 	}
 
 	static toggleItemById(items: TemplateItem[], id: number) {
@@ -20,6 +20,6 @@ export class TemplateItemsModel {
 			return
 		}
 
-		target.isSelected.set(!target.isSelected())
+		target.isSelected = !target.isSelected
 	}
 }

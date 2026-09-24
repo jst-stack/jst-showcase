@@ -2,7 +2,7 @@
 
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
-import { cn } from './utils'
+import { cn } from './showcase.util'
 
 const faq = [
 	{

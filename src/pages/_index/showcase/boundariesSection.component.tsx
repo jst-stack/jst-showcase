@@ -1,5 +1,5 @@
 import { X } from 'lucide-react'
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const boundaries = [
 	'Import app, pages, or widgets from entities or shared',

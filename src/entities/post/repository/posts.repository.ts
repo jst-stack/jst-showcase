@@ -1,7 +1,7 @@
 import type { PostDTO } from './posts.dto'
-import type { PostsRepository } from './types'
-import type { ApiResponse, RequestConfig } from '@/shared/api/types'
-import { HttpClient } from '@/shared/api/HttpClient'
+import type { PostsRepository } from './postsRepository.types'
+import type { ApiResponse, RequestConfig } from '@/shared/api/http.types'
+import { HttpClient } from '@/shared/api/httpClient.adapter'
 import { parsePostsDTO } from './posts.dto'
 
 export class PostsApi implements PostsRepository {

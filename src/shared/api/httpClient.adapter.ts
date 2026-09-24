@@ -1,4 +1,4 @@
-import type { ApiResponse, RequestOptions, SearchParams } from './types'
+import type { ApiResponse, RequestOptions, SearchParams } from './http.types'
 
 export class HttpClient {
 	constructor(

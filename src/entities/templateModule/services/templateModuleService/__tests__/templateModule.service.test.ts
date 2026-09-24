@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { createAppContainer } from '@/app/container/container'
+import { createAppContainer } from '@/app/container/container.composition'
 import {
 	SELECTED_TEMPLATE_ITEMS_REPOSITORY_TOKEN,
 	TEMPLATE_ITEMS_REPOSITORY_TOKEN,
-} from '../../../repository/types'
+} from '../../../repository/templateRepository.types'
 import { TemplateModuleService } from '../templateModule.service'
 
 const templateItemsRepoMock = { getTemplateItems: vi.fn() }

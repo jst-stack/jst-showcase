@@ -1,5 +1,5 @@
 import type { TemplateItemsDTO } from '../repository/templateItem.dto'
-import type { TemplateItem } from './types'
+import type { TemplateItem } from './templateItem.types'
 import { atom } from '@reatom/core'
 
 export function mapTemplateItems(dto: TemplateItemsDTO, selectedIds: number[]): TemplateItem[] {

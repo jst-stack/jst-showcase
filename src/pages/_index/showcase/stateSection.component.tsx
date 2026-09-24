@@ -1,4 +1,4 @@
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const lifecycle = ['initial', 'pending', 'ready', 'refreshing', 'error']
 

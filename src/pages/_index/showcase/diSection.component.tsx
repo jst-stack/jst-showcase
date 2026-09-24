@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const chain = [
 	'application container',

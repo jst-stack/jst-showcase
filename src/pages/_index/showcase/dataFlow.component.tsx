@@ -1,4 +1,4 @@
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const pipeline = ['HTTP client', 'repository', 'DTO mapping', 'domain model', 'store', 'feature entry', 'UI']
 

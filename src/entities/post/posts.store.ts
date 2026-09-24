@@ -1,4 +1,4 @@
-import type { Post } from './model/types'
+import type { Post } from './model/post.types'
 import { inject } from '@needle-di/core'
 import { action, computed, sleep, withAsync, withAsyncData, wrap } from '@reatom/core'
 import { PostsService } from './services/posts.service'

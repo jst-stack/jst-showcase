@@ -1,4 +1,4 @@
-import type { TemplateItem } from '@/entities/templateModule/model/types'
+import type { TemplateItem } from '@/entities/templateModule/model/templateItem.types'
 import { TemplateItemCard } from '@/entities/templateModule/ui/templateItemCard.component'
 
 export function CatalogCard({ item, onToggleSelected }: {

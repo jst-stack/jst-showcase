@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { createAppContainer } from '@/app/container/container'
-import { POSTS_REPOSITORY_TOKEN } from '../../repository/types'
+import { createAppContainer } from '@/app/container/container.composition'
+import { POSTS_REPOSITORY_TOKEN } from '../../repository/postsRepository.types'
 import { PostsService } from '../posts.service'
 
 const postsRepositoryMock = { getPosts: vi.fn() }

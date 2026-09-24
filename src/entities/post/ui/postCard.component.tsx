@@ -1,4 +1,4 @@
-import type { Post } from '../model/types'
+import type { Post } from '../model/post.types'
 import { Card, Text, Title } from '@mantine/core'
 import styles from './postCard.component.module.css'
 

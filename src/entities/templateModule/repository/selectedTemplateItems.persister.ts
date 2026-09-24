@@ -1,8 +1,8 @@
-import type { TemplateItem } from '../model/types'
-import type { SelectedTemplateItemsRepository } from './types'
-import type { KeyValueStorage } from '@/shared/storages/types'
+import type { TemplateItem } from '../model/templateItem.types'
+import type { SelectedTemplateItemsRepository } from './templateRepository.types'
+import type { KeyValueStorage } from '@/shared/storages/storage.types'
 import { inject } from '@needle-di/core'
-import { KEY_VALUE_STORAGE_TOKEN } from '@/shared/storages/types'
+import { KEY_VALUE_STORAGE_TOKEN } from '@/shared/storages/storage.types'
 
 const SELECTED_ITEMS_KEY = 'selected-template-items'
 

@@ -1,4 +1,4 @@
-import type { TemplateItem } from '../model/types'
+import type { TemplateItem } from '../model/templateItem.types'
 
 export interface TemplateItemCardProps {
 	item: TemplateItem

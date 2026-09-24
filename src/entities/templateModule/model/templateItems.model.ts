@@ -1,4 +1,4 @@
-import type { TemplateItem } from './types'
+import type { TemplateItem } from './templateItem.types'
 
 export class TemplateItemsModel {
 	private constructor() {}

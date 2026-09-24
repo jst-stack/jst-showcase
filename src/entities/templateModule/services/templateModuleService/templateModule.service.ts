@@ -1,4 +1,4 @@
-import type { TemplateItem } from '../../model/types'
+import type { TemplateItem } from '../../model/templateItem.types'
 import { inject } from '@needle-di/core'
 import { wrap } from '@reatom/core'
 import { mapTemplateItems } from '../../model/templateItems.mapper'
@@ -6,7 +6,7 @@ import { TemplateItemsModel } from '../../model/templateItems.model'
 import {
 	SELECTED_TEMPLATE_ITEMS_REPOSITORY_TOKEN,
 	TEMPLATE_ITEMS_REPOSITORY_TOKEN,
-} from '../../repository/types'
+} from '../../repository/templateRepository.types'
 
 export class TemplateModuleService {
 	constructor(

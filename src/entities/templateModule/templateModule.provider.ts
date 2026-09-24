@@ -1,10 +1,10 @@
 import type { Container } from '@needle-di/core'
-import { SelectedTemplateItemsStorage } from './repository/selectedTemplateItems.storage'
-import { TemplateItemsMemoryRepository } from './repository/templateItems.memory'
+import { SelectedTemplateItemsStorage } from './repository/selectedTemplateItems.persister'
+import { TemplateItemsMemoryRepository } from './repository/templateItems.repository'
 import {
 	SELECTED_TEMPLATE_ITEMS_REPOSITORY_TOKEN,
 	TEMPLATE_ITEMS_REPOSITORY_TOKEN,
-} from './repository/types'
+} from './repository/templateRepository.types'
 import { TemplateModuleService } from './services/templateModuleService/templateModule.service'
 import { TemplateModuleStore } from './templateModule.store'
 

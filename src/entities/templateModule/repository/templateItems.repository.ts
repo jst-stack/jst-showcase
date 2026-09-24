@@ -1,5 +1,5 @@
 import type { TemplateItemDTO } from './templateItem.dto'
-import type { TemplateItemsRepository } from './types'
+import type { TemplateItemsRepository } from './templateRepository.types'
 
 const TEMPLATE_ITEMS: TemplateItemDTO[] = [
 	{

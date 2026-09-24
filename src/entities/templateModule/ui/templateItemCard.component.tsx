@@ -1,4 +1,4 @@
-import type { TemplateItemCardProps } from './types'
+import type { TemplateItemCardProps } from './templateItem.types'
 import { Button, Card, Group, Text, Title } from '@mantine/core'
 import { wrap } from '@reatom/core'
 import { reatomComponent } from '@reatom/react'

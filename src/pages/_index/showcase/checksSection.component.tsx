@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react'
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const commands = [
 	{ cmd: 'npm run lint', note: 'code, styles, and dependency boundaries' },

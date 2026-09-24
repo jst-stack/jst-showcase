@@ -1,5 +1,5 @@
 import type { PostDTO } from './posts.dto'
-import type { ApiResponse, RequestConfig } from '@/shared/api/types'
+import type { ApiResponse, RequestConfig } from '@/shared/api/http.types'
 import { InjectionToken } from '@needle-di/core'
 
 export interface PostsRepository {

@@ -1,4 +1,4 @@
-import type { TemplateItem } from './model/types'
+import type { TemplateItem } from './model/templateItem.types'
 import { inject } from '@needle-di/core'
 import { atom, computed, sleep, withAsyncData, wrap } from '@reatom/core'
 import { TemplateModuleService } from './services/templateModuleService/templateModule.service'

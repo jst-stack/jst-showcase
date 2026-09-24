@@ -1,6 +1,6 @@
 import { inject } from '@needle-di/core'
 import { mapPosts } from '../model/posts.mapper'
-import { POSTS_REPOSITORY_TOKEN } from '../repository/types'
+import { POSTS_REPOSITORY_TOKEN } from '../repository/postsRepository.types'
 
 export class PostsService {
 	constructor(

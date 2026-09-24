@@ -1,5 +1,5 @@
 import { Database, Layout, Server } from 'lucide-react'
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const cards = [
 	{

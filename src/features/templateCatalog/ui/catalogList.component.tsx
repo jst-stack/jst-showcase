@@ -1,4 +1,4 @@
-import type { TemplateItem } from '@/entities/templateModule/model/types'
+import type { TemplateItem } from '@/entities/templateModule/model/templateItem.types'
 import { TemplateItemList } from '@/entities/templateModule/ui/templateItemList.component'
 import { CatalogCard } from './catalogCard.component'
 

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { HttpClient } from '../HttpClient'
+import { HttpClient } from '../httpClient.adapter'
 
 describe('httpClient', () => {
 	afterEach(() => {

@@ -1,5 +1,5 @@
-import type { PostsFeedDeps } from './types'
-import { createDi } from '@/shared/lib/react'
+import type { PostsFeedDeps } from './postsFeed.types'
+import { createDi } from '@/shared/lib/react.lib'
 
 export const {
 	Injector: PostsFeedInjector,

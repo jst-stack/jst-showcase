@@ -1,6 +1,6 @@
 import type { MouseEventHandler, ReactNode } from 'react'
 import { Button } from '@mantine/core'
-import { SectionHeading } from '../showcase/section-heading'
+import { SectionHeading } from '../showcase/sectionHeading.component'
 
 interface PlaygroundSectionProps {
 	selectedSummary: string

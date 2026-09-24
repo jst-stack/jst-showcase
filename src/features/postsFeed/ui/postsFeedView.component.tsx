@@ -1,4 +1,4 @@
-import type { Post } from '@/entities/post/model/types'
+import type { Post } from '@/entities/post/model/post.types'
 import { Alert, Box, Button, Group, Loader, Stack, Text } from '@mantine/core'
 import { PostCard } from '@/entities/post/ui/postCard.component'
 import styles from './postsFeedView.component.module.css'

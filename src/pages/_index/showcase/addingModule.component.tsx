@@ -1,4 +1,4 @@
-import { SectionHeading } from './section-heading'
+import { SectionHeading } from './sectionHeading.component'
 
 const steps = [
 	{ title: 'Domain types', text: 'Define model language and invariants in entities/<domain>/model.' },

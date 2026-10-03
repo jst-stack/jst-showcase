@@ -32,7 +32,7 @@ export function DataFlow() {
 					description="Every step from protocol to render owns one responsibility. DTOs stop at the repository boundary, and UI never knows how data was fetched."
 				/>
 
-				<div className="mt-12 overflow-x-auto rounded-xl border border-border bg-card p-6">
+				<div aria-label="Request data flow" className="mt-12 overflow-x-auto rounded-xl border border-border bg-card p-6" tabIndex={0}>
 					<ol className="flex min-w-max items-center gap-2 font-mono text-sm" role="list">
 						{pipeline.map((node, i) => (
 							<li key={node} className="flex items-center gap-2">

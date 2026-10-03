@@ -1,0 +1,8 @@
+{
+	"budgets": {
+		"cumulativeLayoutShift": 0.1,
+		"largestContentfulPaintMs": 2800,
+		"totalBlockingTimeMs": 200
+	},
+	"source": "Lighthouse CI median of three production-build runs"
+}

@@ -19,6 +19,7 @@ lerna-debug.log*
 .react-router/
 build/
 coverage/
+.lighthouseci/
 playwright-report/
 test-results/
 

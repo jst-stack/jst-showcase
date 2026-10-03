@@ -19,6 +19,7 @@ import { APP_CONFIG } from './shared/app.config'
 import '@mantine/core/styles.css'
 import './index.css'
 
+// eslint-disable-next-line react-refresh/only-export-components -- React Router requires the headers contract in the root route module.
 export const headers: Route.HeadersFunction = () => ({
 	'Referrer-Policy': 'strict-origin-when-cross-origin',
 	'X-Content-Type-Options': 'nosniff',

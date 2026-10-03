@@ -28,7 +28,7 @@ const subscribe = () => () => {}
 const getClientSnapshot = () => true
 const getServerSnapshot = () => false
 
-export const HomePage = reatomComponent(() => {
+function HomePageViewModel() {
 	const templateModuleStore = useService(TemplateModuleStore)
 	const postsStore = useService(PostsStore)
 	const hydrated = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot)
@@ -74,4 +74,6 @@ export const HomePage = reatomComponent(() => {
 			<SiteFooter />
 		</div>
 	)
-}, 'HomePage')
+}
+
+export const HomePage = reatomComponent(HomePageViewModel, 'HomePage')

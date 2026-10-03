@@ -1,26 +1,20 @@
-export interface PostDTO {
-	userId: number
-	id: number
-	title: string
-	body: string
-}
+import { z } from 'zod'
+
+const postSchema = z.object({
+	body: z.string(),
+	id: z.number().int(),
+	title: z.string(),
+	userId: z.number().int(),
+})
+
+const postsSchema = z.array(postSchema)
+
+export type PostDTO = z.infer<typeof postSchema>
 
 export function parsePostsDTO(value: unknown): PostDTO[] {
-	if (!Array.isArray(value) || !value.every(isPostDTO)) {
-		throw new TypeError('The posts API returned an invalid payload.')
+	const result = postsSchema.safeParse(value)
+	if (!result.success) {
+		throw new TypeError('The posts API returned an invalid payload.', { cause: result.error })
 	}
-
-	return value
-}
-
-function isPostDTO(value: unknown): value is PostDTO {
-	if (!value || typeof value !== 'object') {
-		return false
-	}
-
-	const post = value as Record<string, unknown>
-	return typeof post.userId === 'number'
-		&& typeof post.id === 'number'
-		&& typeof post.title === 'string'
-		&& typeof post.body === 'string'
+	return result.data
 }

@@ -3,7 +3,7 @@ import { reatomComponent } from '@reatom/react'
 import { useTemplateCatalogService } from './templateCatalog.injector'
 import { TemplateCatalogView } from './ui/templateCatalogView.component'
 
-export const TemplateCatalogEntry = reatomComponent(() => {
+function TemplateCatalogEntryViewModel() {
 	const { templateModuleStore } = useTemplateCatalogService()
 	const items = templateModuleStore.items
 
@@ -16,4 +16,6 @@ export const TemplateCatalogEntry = reatomComponent(() => {
 			onToggleSelected={templateModuleStore.toggleSelected}
 		/>
 	)
-}, 'TemplateCatalogEntry')
+}
+
+export const TemplateCatalogEntry = reatomComponent(TemplateCatalogEntryViewModel, 'TemplateCatalogEntry')

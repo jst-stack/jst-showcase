@@ -3,7 +3,7 @@ import { reatomComponent } from '@reatom/react'
 import { usePostsFeedService } from './postsFeed.injector'
 import { PostsFeedView } from './ui/postsFeedView.component'
 
-export const PostsFeedEntry = reatomComponent(() => {
+function PostsFeedEntryViewModel() {
 	const { postsStore } = usePostsFeedService()
 	const posts = postsStore.posts.data()
 	const error = postsStore.posts.error()
@@ -21,4 +21,6 @@ export const PostsFeedEntry = reatomComponent(() => {
 			onRefresh={wrap(() => postsStore.refresh())}
 		/>
 	)
-}, 'PostsFeedEntry')
+}
+
+export const PostsFeedEntry = reatomComponent(PostsFeedEntryViewModel, 'PostsFeedEntry')

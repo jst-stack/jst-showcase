@@ -17,7 +17,8 @@ for (const colorScheme of ['light', 'dark'] as const) {
 	})
 }
 
-test('keyboard users can bypass repeated navigation', async ({ page }) => {
+test('keyboard users can bypass repeated navigation', async ({ browserName, page }) => {
+	test.skip(browserName === 'webkit', 'Headless WebKit on macOS does not enable full keyboard access for links.')
 	await page.goto('/')
 	await page.keyboard.press('Tab')
 

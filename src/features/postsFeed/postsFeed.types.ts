@@ -1,4 +1,4 @@
-import type { PostsStore } from '@/entities/post/posts.store'
+import type { PostsStore } from '@/entities/post/post.public'
 
 export interface PostsFeedDeps {
 	postsStore: PostsStore

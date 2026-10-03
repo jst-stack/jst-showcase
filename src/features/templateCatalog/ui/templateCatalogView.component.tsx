@@ -1,4 +1,4 @@
-import type { TemplateItem } from '@/entities/templateModule/model/templateItem.types'
+import type { TemplateItem } from '@/entities/templateModule/templateModule.public'
 import { Alert, Box, Loader, Stack, Text } from '@mantine/core'
 import { CatalogInput } from './catalogInput.component'
 import { CatalogList } from './catalogList.component'

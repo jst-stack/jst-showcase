@@ -8,6 +8,8 @@ import {
 import { TemplateModuleService } from './services/templateModuleService/templateModule.service'
 import { TemplateModuleStore } from './templateModule.store'
 
+export const scope = 'request' as const
+
 export function provider(container: Container) {
 	container.bindAll(
 		{

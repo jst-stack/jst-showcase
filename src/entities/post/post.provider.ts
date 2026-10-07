@@ -4,6 +4,8 @@ import { PostsApi } from './repository/posts.repository'
 import { POSTS_REPOSITORY_TOKEN } from './repository/postsRepository.types'
 import { PostsService } from './services/posts.service'
 
+export const scope = 'request' as const
+
 export function provider(container: Container) {
 	container.bindAll(
 		{

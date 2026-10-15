@@ -20,7 +20,7 @@ export class LocalStoragePersister implements KeyValueStorage {
 		return window.localStorage
 	}
 
-	async get<T>(key: string): Promise<T | null> {
+	async get(key: string): Promise<unknown | null> {
 		try {
 			const storageKey = this.createKey(key)
 			const data
@@ -28,7 +28,7 @@ export class LocalStoragePersister implements KeyValueStorage {
 					?? this.memoryStorage.get(storageKey)
 					?? null
 
-			return data ? JSON.parse(data) as T : null
+			return data ? JSON.parse(data) : null
 		}
 		catch (error) {
 			console.error('Storage get error:', error)

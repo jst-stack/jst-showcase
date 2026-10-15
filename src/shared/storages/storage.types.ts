@@ -1,7 +1,7 @@
 import { InjectionToken } from '@needle-di/core'
 
 export interface KeyValueStorage {
-	get: <T>(key: string) => Promise<T | null>
+	get: (key: string) => Promise<unknown | null>
 	set: <T>(key: string, value: T) => Promise<void>
 	delete: (key: string) => Promise<void>
 	clear: () => Promise<void>

@@ -2,9 +2,11 @@ import type { TemplateItem } from '../model/templateItem.types'
 import type { SelectedTemplateItemsRepository } from './templateRepository.types'
 import type { KeyValueStorage } from '@/shared/storages/storage.types'
 import { inject } from '@needle-di/core'
+import { z } from 'zod'
 import { KEY_VALUE_STORAGE_TOKEN } from '@/shared/storages/storage.types'
 
 const SELECTED_ITEMS_KEY = 'selected-template-items'
+const selectedItemIdsSchema = z.array(z.number().int())
 
 export class SelectedTemplateItemsStorage
 implements SelectedTemplateItemsRepository {
@@ -15,8 +17,11 @@ implements SelectedTemplateItemsRepository {
 	) {}
 
 	async getSelectedItemIds() {
-		const result
-			= (await this.storage.get<TemplateItem['id'][]>(SELECTED_ITEMS_KEY)) ?? []
+		const parsed = selectedItemIdsSchema.safeParse(await this.storage.get(SELECTED_ITEMS_KEY))
+		const result = parsed.success ? parsed.data : []
+		if (!parsed.success) {
+			await this.storage.delete(SELECTED_ITEMS_KEY)
+		}
 
 		this.selectedIds = result
 		return result

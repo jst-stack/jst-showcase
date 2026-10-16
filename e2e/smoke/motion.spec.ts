@@ -28,11 +28,16 @@ test('keeps every layer control inside its diagram', async ({ page }) => {
 	const bounds = await diagram.boundingBox()
 	const layers = diagram.getByRole('button')
 
-	expect(bounds).not.toBeNull()
 	for (let index = 0; index < await layers.count(); index += 1) {
-		const layer = await layers.nth(index).boundingBox()
-		expect(layer).not.toBeNull()
-		expect(layer?.x).toBeGreaterThanOrEqual(bounds?.x ?? 0)
-		expect((layer?.x ?? 0) + (layer?.width ?? 0)).toBeLessThanOrEqual((bounds?.x ?? 0) + (bounds?.width ?? 0))
+		expectInsideBounds(bounds, await layers.nth(index).boundingBox())
 	}
 })
+
+function expectInsideBounds(bounds: { x: number, width: number } | null, layer: { x: number, width: number } | null) {
+	expect(bounds).not.toBeNull()
+	expect(layer).not.toBeNull()
+	if (bounds && layer) {
+		expect(layer.x).toBeGreaterThanOrEqual(bounds.x)
+		expect(layer.x + layer.width).toBeLessThanOrEqual(bounds.x + bounds.width)
+	}
+}

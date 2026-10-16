@@ -19,7 +19,7 @@ import { APP_CONFIG } from './shared/app.config'
 import '@mantine/core/styles.css'
 import './index.css'
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router requires the headers contract in the root route module.
+// eslint-disable-next-line react-refresh/only-export-components -- React Router owns the root headers contract.
 export const headers: Route.HeadersFunction = () => ({
 	'Referrer-Policy': 'strict-origin-when-cross-origin',
 	'X-Content-Type-Options': 'nosniff',
@@ -42,7 +42,7 @@ export function Layout({ children }: { children: ReactNode }) {
 			</head>
 			<body>
 				{/* SVG content is compiled from repository-owned files during the Vite build. */}
-				{/* eslint-disable-next-line react/dom-no-dangerously-set-innerhtml */}
+				{/* eslint-disable-next-line react/dom-no-dangerously-set-innerhtml -- Vite injects SVG markup */}
 				<div aria-hidden="true" dangerouslySetInnerHTML={{ __html: svgSprite }} />
 				<a className={styles.skipLink} href="#main-content">Skip to content</a>
 				{children}

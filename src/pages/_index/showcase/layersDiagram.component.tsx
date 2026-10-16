@@ -113,7 +113,15 @@ function LayerStack({ active, onSelect }: { active: string, onSelect: (id: strin
 					<span className="animate-flow absolute left-1/2 h-8 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary to-transparent" />
 				</div>
 				<ul className="flex flex-col gap-2" role="list">
-					{layers.map((layer, index) => <LayerButton key={layer.id} active={active === layer.id} index={index} layer={layer} onSelect={onSelect} />)}
+					{layers.map((layer, index) => (
+						<LayerButton
+							key={layer.id}
+							active={active === layer.id}
+							index={index}
+							layer={layer}
+							onSelect={onSelect}
+						/>
+					))}
 				</ul>
 			</div>
 			<p className="mt-4 pl-6 font-mono text-xs text-muted-foreground">→ imports are allowed only down the stack</p>
@@ -121,7 +129,14 @@ function LayerStack({ active, onSelect }: { active: string, onSelect: (id: strin
 	)
 }
 
-function LayerButton({ active, index, layer, onSelect }: { active: boolean, index: number, layer: Layer, onSelect: (id: string) => void }) {
+interface LayerButtonProps {
+	active: boolean
+	index: number
+	layer: Layer
+	onSelect: (id: string) => void
+}
+
+function LayerButton({ active, index, layer, onSelect }: LayerButtonProps) {
 	return (
 		<li className="relative">
 			<span className={cn('pointer-events-none absolute -left-[calc(1.5rem-4px)] top-1/2 size-2 -translate-y-1/2 rounded-full border-2 transition-colors', active ? 'animate-node border-primary bg-primary' : 'border-border bg-background')} aria-hidden="true" />
@@ -158,7 +173,8 @@ function LayerDetail({ layer }: { layer: Layer }) {
 				Code belongs in
 				<span className="font-mono text-foreground">shared</span>
 				{' '}
-				only when it is independent of a domain context and has proven reuse—not because its owner is still unclear.
+				only when it is independent of a domain context and has proven
+				reuse—not because its owner is still unclear.
 			</p>
 		</div>
 	)

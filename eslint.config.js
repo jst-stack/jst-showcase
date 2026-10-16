@@ -16,7 +16,15 @@ export default antfu(
 		lessOpinionated: true,
 		stylistic: { indent: 'tab', quotes: 'single', semi: false },
 		formatters: { html: true, css: true },
-		ignores: ['.lighthouseci/**', '.react-router/**', 'build/**', 'coverage/**', 'playwright-report/**', 'src/index.css', 'test-results/**'],
+		ignores: [
+			'.lighthouseci/**',
+			'.react-router/**',
+			'build/**',
+			'coverage/**',
+			'playwright-report/**',
+			'src/index.css',
+			'test-results/**',
+		],
 		rules: {
 			'no-console': ['error', { allow: ['log', 'error'] }],
 			'react-refresh/only-export-components': ['error', { extraHOCs: ['reatomComponent'] }],
@@ -24,4 +32,18 @@ export default antfu(
 	},
 	{ linterOptions: { reportUnusedDisableDirectives: 'error' } },
 	...jst.createConfig(policy),
+	{
+		files: ['src/pages/_index/showcase/**/*.tsx', 'src/pages/_index/ui/playgroundSection.component.tsx'],
+		rules: {
+			// Tailwind class strings and inline SVG path data are indivisible; wrap ordinary code.
+			'style/max-len': ['error', {
+				code: 120,
+				ignoreRegExpLiterals: true,
+				ignoreStrings: true,
+				ignoreTemplateLiterals: true,
+				ignoreUrls: true,
+				tabWidth: 4,
+			}],
+		},
+	},
 )

@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 test.setTimeout(60_000)
 
 for (const colorScheme of ['light', 'dark'] as const) {
-	test(`home page has no automatically detectable accessibility violations in ${colorScheme} mode`, async ({ page }) => {
+	test(`home page has no detectable accessibility violations in ${colorScheme} mode`, async ({ page }) => {
 		await page.emulateMedia({ colorScheme, reducedMotion: 'reduce' })
 		await page.goto('/')
 		await expect(page.getByRole('heading', { level: 1 })).toBeVisible()

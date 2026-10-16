@@ -3,7 +3,10 @@ import { readFile } from 'node:fs/promises'
 import process from 'node:process'
 
 const policy = JSON.parse(await readFile(new URL('../security/development-advisories.json', import.meta.url), 'utf8'))
-const audit = spawnSync('npm', ['audit', '--json'], { encoding: 'utf8', shell: process.platform === 'win32' })
+const audit = spawnSync('npm', ['audit', '--json'], {
+	encoding: 'utf8',
+	shell: process.platform === 'win32',
+})
 if (!audit.stdout) {
 	throw new Error(audit.stderr || 'npm audit returned no report.')
 }
@@ -18,6 +21,11 @@ const unexpected = [...actual].filter(id => !allowed.has(id))
 const expired = [...actual].filter(id => allowed.get(id).expires < today)
 const stale = [...allowed.keys()].filter(id => !actual.has(id))
 if (unexpected.length || expired.length || stale.length) {
-	throw new Error(`Development advisory policy mismatch. Unexpected: ${unexpected.join(', ') || 'none'}; expired: ${expired.join(', ') || 'none'}; stale: ${stale.join(', ') || 'none'}.`)
+	const details = [
+		`Unexpected: ${unexpected.join(', ') || 'none'}`,
+		`expired: ${expired.join(', ') || 'none'}`,
+		`stale: ${stale.join(', ') || 'none'}`,
+	].join('; ')
+	throw new Error(`Development advisory policy mismatch. ${details}.`)
 }
 process.stdout.write(`Reviewed ${actual.size} development-only advisory source(s).\n`)

@@ -17,7 +17,11 @@ export function PostsFeedView({ error, pending, posts, ready, refreshing, onRefr
 		<Stack gap="lg">
 			<Group justify="space-between" align="center">
 				<Group gap="xs">
-					<span className={styles.requestStatus} data-pending={pending || refreshing || undefined} aria-hidden="true" />
+					<span
+						className={styles.requestStatus}
+						data-pending={pending || refreshing || undefined}
+						aria-hidden="true"
+					/>
 					<Text size="xs" ff="monospace" c="var(--color-text-muted)">Request</Text>
 					<Text className={styles.requestState} aria-live="polite">
 						{pending || refreshing ? 'loading' : 'ready'}

@@ -30,8 +30,13 @@ test('hero keeps its actions visible on a wide, short viewport', async ({ page }
 	const primaryAction = await page.getByRole('link', { name: 'View on GitHub' }).boundingBox()
 	const secondaryAction = await page.getByRole('link', { name: 'Explore the architecture' }).boundingBox()
 
-	expect(primaryAction).not.toBeNull()
-	expect(secondaryAction).not.toBeNull()
-	expect((primaryAction?.y ?? 0) + (primaryAction?.height ?? 0)).toBeLessThanOrEqual(viewport?.height ?? 0)
-	expect((secondaryAction?.y ?? 0) + (secondaryAction?.height ?? 0)).toBeLessThanOrEqual(viewport?.height ?? 0)
+	expectFitsAbove(primaryAction, viewport)
+	expectFitsAbove(secondaryAction, viewport)
 })
+
+function expectFitsAbove(element: { y: number, height: number } | null, viewport: { height: number } | null) {
+	expect(element).not.toBeNull()
+	if (element && viewport) {
+		expect(element.y + element.height).toBeLessThanOrEqual(viewport.height)
+	}
+}

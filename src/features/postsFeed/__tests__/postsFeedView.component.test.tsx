@@ -15,7 +15,14 @@ describe('postsFeedView', () => {
 		const onRefresh = vi.fn()
 		render(
 			<MantineProvider>
-				<PostsFeedView error={undefined} pending={false} posts={[]} ready refreshing={false} onRefresh={onRefresh} />
+				<PostsFeedView
+					error={undefined}
+					pending={false}
+					posts={[]}
+					ready
+					refreshing={false}
+					onRefresh={onRefresh}
+				/>
 			</MantineProvider>,
 		)
 

@@ -7,7 +7,6 @@
 		{ "id": "1193685", "owner": "@jst-stack/maintainers", "reason": "Transitive Puppeteer browser installer; trusted release archives only.", "expires": "2027-01-15" },
 		{ "id": "1240853", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse proxy tooling; production bundle excludes it.", "expires": "2027-01-15" },
 		{ "id": "1240992", "owner": "@jst-stack/maintainers", "reason": "Transitive Stylelint and Tailwind glob parsing; production bundle excludes it.", "expires": "2027-01-15" },
-		{ "id": "1241202", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse formatter; no untrusted format strings are accepted.", "expires": "2027-01-15" },
 		{ "id": "1241206", "owner": "@jst-stack/maintainers", "reason": "Transitive markdown lint tooling; application does not render KaTeX.", "expires": "2027-01-15" }
 	]
 }

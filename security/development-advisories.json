@@ -7,12 +7,6 @@
 			"expires": "2027-01-15"
 		},
 		{
-			"package": "extract-zip",
-			"owner": "@jst-stack/maintainers",
-			"reason": "Transitive Puppeteer browser installer; trusted release archives only.",
-			"expires": "2027-01-15"
-		},
-		{
 			"package": "katex",
 			"owner": "@jst-stack/maintainers",
 			"reason": "Transitive markdown lint tooling; application does not render KaTeX.",
@@ -22,18 +16,6 @@
 			"package": "minimatch",
 			"owner": "@jst-stack/maintainers",
 			"reason": "Transitive glob parser used only by trusted lint and build configuration; production bundles exclude it.",
-			"expires": "2027-01-15"
-		},
-		{
-			"package": "tmp",
-			"owner": "@jst-stack/maintainers",
-			"reason": "Transitive Lighthouse CLI temporary-file path; trusted CI inputs only.",
-			"expires": "2027-01-15"
-		},
-		{
-			"package": "uuid",
-			"owner": "@jst-stack/maintainers",
-			"reason": "Transitive Lighthouse UUID API not called by application code.",
 			"expires": "2027-01-15"
 		}
 	]

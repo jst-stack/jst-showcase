@@ -1,12 +1,40 @@
 {
-	"advisories": [
-		{ "id": "1109537", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse CLI temporary-file path; not present in production.", "expires": "2027-01-15" },
-		{ "id": "1119441", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse UUID API not called by application code.", "expires": "2027-01-15" },
-		{ "id": "1120654", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse CLI temporary-file path; trusted CI inputs only.", "expires": "2027-01-15" },
-		{ "id": "1139346", "owner": "@jst-stack/maintainers", "reason": "Transitive Puppeteer browser installer; trusted release archives only.", "expires": "2027-01-15" },
-		{ "id": "1193685", "owner": "@jst-stack/maintainers", "reason": "Transitive Puppeteer browser installer; trusted release archives only.", "expires": "2027-01-15" },
-		{ "id": "1240853", "owner": "@jst-stack/maintainers", "reason": "Transitive Lighthouse proxy tooling; production bundle excludes it.", "expires": "2027-01-15" },
-		{ "id": "1241206", "owner": "@jst-stack/maintainers", "reason": "Transitive markdown lint tooling; application does not render KaTeX.", "expires": "2027-01-15" },
-		{ "id": "1244012", "owner": "@jst-stack/maintainers", "reason": "Transitive glob parser used only by trusted lint and build configuration; production bundles exclude it.", "expires": "2027-01-15" }
+	"waivers": [
+		{
+			"package": "basic-ftp",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive Lighthouse proxy tooling; production bundle excludes it.",
+			"expires": "2027-01-15"
+		},
+		{
+			"package": "extract-zip",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive Puppeteer browser installer; trusted release archives only.",
+			"expires": "2027-01-15"
+		},
+		{
+			"package": "katex",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive markdown lint tooling; application does not render KaTeX.",
+			"expires": "2027-01-15"
+		},
+		{
+			"package": "minimatch",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive glob parser used only by trusted lint and build configuration; production bundles exclude it.",
+			"expires": "2027-01-15"
+		},
+		{
+			"package": "tmp",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive Lighthouse CLI temporary-file path; trusted CI inputs only.",
+			"expires": "2027-01-15"
+		},
+		{
+			"package": "uuid",
+			"owner": "@jst-stack/maintainers",
+			"reason": "Transitive Lighthouse UUID API not called by application code.",
+			"expires": "2027-01-15"
+		}
 	]
 }

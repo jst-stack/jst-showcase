@@ -31,6 +31,7 @@
 		"doctor:staged": "react-doctor --staged --blocking warning --no-supply-chain --no-telemetry --yes",
 		"audit:production": "npm audit --omit=dev --audit-level=high",
 		"audit:development": "node scripts/audit-development.mjs",
+		"audit:development:sync": "node scripts/sync-development-advisories.mjs --write",
 		"check": "npm run lint && npm run doctor && npm run test:unit && npm run build && npm run lint:budgets && npm run knip",
 		"prepare": "husky"
 	},

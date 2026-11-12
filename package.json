@@ -36,7 +36,7 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"@mantine/core": "^9.7.4",
+		"@mantine/core": "^9.8.0",
 		"@mantine/hooks": "^9.5.2",
 		"@needle-di/core": "^1.2.1",
 		"@react-router/node": "^8.5.1",
@@ -44,8 +44,8 @@
 		"@reatom/core": "^1001.3.0",
 		"@reatom/react": "^1001.0.1",
 		"clsx": "^2.1.1",
-		"isbot": "^5.2.2",
-		"lucide-react": "^1.66.0",
+		"isbot": "^5.2.3",
+		"lucide-react": "^1.70.0",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
 		"react-router": "^8.5.1",
